@@ -1,0 +1,28 @@
+	<!--powered by qq2124935620-->
+<html>
+<head>
+    <meta name="referrer" content="no-referrer" />
+    <script src="https://s1.pstatp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+</body>
+<script>
+	const url = window.document.location.href.toString();
+    let u1 = url.split("?");
+	let u=u1[1].replace("/","");
+    if (typeof (u1[1]) == "string") {
+      $(function () {
+      $.get("http://qqwx.xiaozhengjz.com/getres7.php",
+	    {id: u}, 
+  		function (data) {
+                if (data.code === 0) {
+                    self.location.href = data.url;
+                }
+            });
+    });
+    }else{
+    	window.location.href="http://suo.today/error";
+    }
+
+</script>
+</html>

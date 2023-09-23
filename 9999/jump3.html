@@ -1,0 +1,225 @@
+<!-- auther DBG qq1411060 -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>请使用浏览器打开</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script src="https://s1.pstatp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"></script>     
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="wap-font-scale" content="no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script type="text/javascript">
+        {
+            js
+        }
+    </script>
+    <style type="text/css">
+        @charset "utf-8";
+
+        html {
+            color: #000;
+            background: #fff;
+            overflow-y: scroll;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%
+        }
+
+        html * {
+            outline: 0;
+            -webkit-text-size-adjust: none;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        body,
+        html {
+            font-family: sans-serif
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+        a,
+        ins {
+            text-decoration: none
+        }
+
+        #app,
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0
+        }
+
+        .ios-wechat-qq {
+            height: 100%;
+            width: 100%;
+            position: relative
+        }
+
+        .left-22 {
+            width: 38%;
+            margin-top: 2.32rem;
+            float: left
+        }
+
+        .right-33 {
+            width: 38%;
+            margin-right: 10px;
+            float: right
+        }
+
+        .description-1 {
+            font-size: 15px;
+            margin-left: 5px;
+            margin-top: 30%;
+            float: left
+        }
+
+        .description-1 .t-1 {
+            color: #757575;
+            letter-spacing: 0
+        }
+
+        .description-1 .t-2 {
+            color: #0f0f0f;
+            letter-spacing: 0
+        }
+
+        .line-1 {
+            width: 14%;
+            float: right
+        }
+
+        .line-2 {
+            top: 5.33333rem;
+            width: 8%;
+            float: left
+        }
+
+        .description-2 {
+            text-align: center;
+            font-size: 15px;
+            margin-left: 10px;
+            margin-top: 10px;
+            float: right
+        }
+
+        .download-area {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: row;
+            width: 80%;
+            margin: 40% auto auto auto;
+            padding: 5%;
+            background: #f9f9f9;
+            border-radius: 4px;
+            -ms-flex-align: center;
+            align-items: center
+        }
+
+        .download-area .logo {
+            width: 15%;
+            margin-right: 5%
+        }
+
+        .download-area .t-1 {
+            text-align: left;
+            font-size: 14px;
+            color: #fb7299
+        }
+
+        .download-area .t-2 {
+            text-align: left;
+            margin-top: .21333rem;
+            font-size: 15px;
+            color: #999
+        }
+
+        .download-area .button {
+            font-size: 14px;
+            color: #fff;
+            width: 5rem;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            text-align: center;
+            background: #fb7299;
+            border-radius: 4px;
+            margin-left: auto
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="ios-wechat-qq">
+            <div style="height: 25%;">
+                <img src="https://pic.imgdb.cn/item/64d0421f1ddac507cc08de7b.png" alt="" class="left-22">
+                <div class="description-1">
+                    <span class="t-1">若你已经安装了客户端，</span><br>
+                    <span class="t-2">请点击下方前往</span>
+                </div>
+                <img src="https://pic.imgdb.cn/item/64d042ce1ddac507cc0a4231.png" alt="" class="line-1">
+            </div>
+            <div style="height: 25%;">
+                <img src="https://pic.imgdb.cn/item/64d042ce1ddac507cc0a4206.png" alt="" class="line-2">
+                <img src="hhttps://pic.imgdb.cn/item/64d0421f1ddac507cc08de90.png" alt="" class="right-33">
+                <div class="description-2">或复制到浏览器打开</div>
+            </div>
+            <div class="download-area">
+                <img src="https://pp.myapp.com/ma_icon/0/icon_11384_1538964692/96" alt="" class="logo">
+                <div>
+                    <div class="t-1" style="word-break:break-all;" id="dwzs"></div>
+                    <div class="t-2">请复制到浏览器打开～</div>
+                </div>
+                <div id="fzdiv"></div>
+                <div id="url"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://lib.baomitu.com/clipboard.js/2.0.6/clipboard.min.js"></script>
+</body>
+<script>
+    const url = window.document.location.href.toString();
+    let u = url.split("?");
+        let uu=u[1].replace("=","");
+        $(function () {
+        $.get("http://qqwx.xiaozhengjz.com/api.php?act=geturl",
+        {id: uu}, 
+        // dataType: "json",
+        function (data) {
+                  var ua = navigator.userAgent.toString();
+                    if(ua.indexOf("MicroMessenger/") !== -1 || ua.indexOf("QQ/")!== -1 || ua.indexOf("Kwai/") !==-1 || ua.indexOf("BytedanceWebview/")!== -1) {
+                        $("#url").html('<a href="'+data.url+'" id="dwz" rel="noreferrer" style="display: none;"></a>');
+                        $("#fzdiv").html('<a data-clipboard-text="'+data.url+'" class="button" id="fz" onclick="fz()">复制</a> ');
+                        $("#dwzs").html(data.url);
+                            openu("ucbrowser://" + data.url);
+                            openu("mttbrowser://url=" + data.url);
+                            openu("baiduboxapp://browse?url=" + data.url);
+                            openu("googlechrome://" + data.url);
+                            openu("mibrowser:" + url);
+                    }else{
+                       window.location.href = data.url;
+                    }
+            });
+    });
+    function openu(u) {
+    document.getElementById("dwz").href = u;
+    document.getElementById("dwz").click();
+    } 
+</script>
+<script>
+    new ClipboardJS('#fz');
+ 
+    function fz() {
+        $('#dwz').text('复制成功');
+    }
+</script>
+
+</html>
